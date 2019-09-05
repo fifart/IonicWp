@@ -9,12 +9,14 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: "./home/home.module#HomePageModule"
   },
   {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }
+    path: 'home/:category',
+    loadChildren: "./home/home.module#HomePageModule"
+  },
+  { path: 'posts/:id', loadChildren: './post-detail/post-detail.module#PostDetailPageModule' },
+  { path: 'categories', loadChildren: './categories/categories.module#CategoriesPageModule' }
 ];
 
 @NgModule({
